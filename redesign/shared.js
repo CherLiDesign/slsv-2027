@@ -102,10 +102,24 @@ function drawMotif(el) {
       const ly = by + bh, ry = by + bh * (1 - slant);
       shape = `<polygon points="${P([[bx, by], [bx + bw, by], [bx + bw, ry], [bx, ly]])}"/>`;
       stripe = `<polygon fill="var(--signal)" points="${P([[bx, ly + sw * 0.8], [bx + bw, ry + sw * 0.8], [bx + bw, ry + sw * 2.2], [bx, ly + sw * 2.2]])}"/>`;
+    } else if (clip === "band") {
+      // Straight edges (nothing diagonal to clip a person), orange stripe underneath.
+      shape = `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}"/>`;
+      stripe = `<rect fill="var(--signal)" x="${bx}" y="${by + bh + sw * 0.8}" width="${bw}" height="${sw * 1.4}"/>`;
     } else {
       shape = `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${Math.min(bw, bh) * 0.03}"/>`;
     }
-    out += `<defs><clipPath id="${id}">${shape}</clipPath></defs><image href="${photo}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="${el.dataset.align || "xMidYMid"} slice" clip-path="url(#${id})"/>${stripe}`;
+    // With data-aspect (photo height / width), place the photo by focus point data-focus="fx,fy" (0..1)
+    // so the part with the people is the part that shows; otherwise centre-crop.
+    let img = `<image href="${photo}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="${el.dataset.align || "xMidYMid"} slice"`;
+    if (el.dataset.aspect) {
+      const ar = +el.dataset.aspect;
+      const [fx, fy] = pt(el.dataset.focus || "0.5,0.5");
+      let iw = bw, ih = bw * ar;
+      if (ih < bh) { ih = bh; iw = bh / ar; }
+      img = `<image href="${photo}" x="${bx - (iw - bw) * fx}" y="${by - (ih - bh) * fy}" width="${iw}" height="${ih}" preserveAspectRatio="none"`;
+    }
+    out += `<defs><clipPath id="${id}">${shape}</clipPath></defs>${img} clip-path="url(#${id})"/>${stripe}`;
   }
   el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${out}</svg>`;
 }
