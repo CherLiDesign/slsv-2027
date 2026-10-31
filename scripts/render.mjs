@@ -7,12 +7,14 @@ import path from "path";
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const root = process.cwd();
-const [scale = "4", outDir = "versions", filter = ""] = process.argv.slice(2);
+// Optional 4th arg renders every page as that version (adds ?v=<n>), e.g. 4 for the photo version.
+const [scale = "4", outDir = "versions", filter = "", forceVersion = ""] = process.argv.slice(2);
 const MAP = JSON.parse(readFileSync(path.join(root, "redesign/map.json"), "utf8"));
 
 for (const file of readdirSync(path.join(root, "redesign")).filter((f) => f.endsWith(".html")).sort()) {
   if ((filter && !file.includes(filter)) || !MAP[file]) continue;
-  const { slug, version } = MAP[file];
+  const { slug } = MAP[file];
+  const version = forceVersion || MAP[file].version;
   const html = readFileSync(path.join(root, "redesign", file), "utf8");
   const w = +html.match(/--w:\s*(\d+)px/)[1];
   const h = +html.match(/--h:\s*(\d+)px/)[1];
@@ -28,7 +30,7 @@ for (const file of readdirSync(path.join(root, "redesign")).filter((f) => f.ends
     `--force-device-scale-factor=${scale}`,
     "--virtual-time-budget=6000",
     `--screenshot=${out}`,
-    `file://${path.join(root, "redesign", file)}`,
+    `file://${path.join(root, "redesign", file)}${forceVersion ? `?v=${forceVersion}` : ""}`,
   ], { stdio: "ignore" });
   console.log("✓", path.relative(root, out), `${w * scale}×${h * scale}`);
 }

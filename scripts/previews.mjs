@@ -44,7 +44,7 @@ const intro = path.join(root, "public/intro");
 mkdirSync(path.join(intro, "assets"), { recursive: true });
 copyFileSync(path.join(root, "redesign/intro.html"), path.join(intro, "index.html"));
 for (const f of ["shared.css", "shared.js"]) copyFileSync(path.join(root, "redesign", f), path.join(intro, f));
-for (const f of readdirSync(path.join(root, "redesign/assets"))) copyFileSync(path.join(root, "redesign/assets", f), path.join(intro, "assets", f));
+for (const f of readdirSync(path.join(root, "redesign/assets")).filter((f) => f.endsWith(".png"))) copyFileSync(path.join(root, "redesign/assets", f), path.join(intro, "assets", f));
 
 for (const dir of [previews, files]) {
   for (const f of readdirSync(dir)) if (!keep.has(f)) rmSync(path.join(dir, f));
