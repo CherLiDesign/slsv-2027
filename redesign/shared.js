@@ -20,8 +20,9 @@ function colorAt(w, stops) {
   return `rgb(${stops.at(-1)[1].join(",")})`;
 }
 
-// V4 ("abstract + figurative"): render with ?v=4 and motifs that have data-photo reveal a real photo
-// through the Life circles, merging into a solid image at the core. Without it, everything renders as V3.
+// V4 ("abstract + figurative"): render with ?v=4 and motifs that have data-photo show a clean, uncut photo
+// in the box data-box="x,y,w,h" (fractions of the motif); the pixel field only frames it as an accent.
+// Without ?v=4, everything renders as V3.
 const PHOTO_MODE = new URLSearchParams(location.search).get("v") === "4";
 
 const clamp = (v) => Math.max(0, Math.min(1, v));
@@ -43,7 +44,9 @@ function drawMotif(el) {
   const stops = dark ? STOPS.dark : STOPS.light;
   const dots = el.dataset.empty !== "none";
   const photo = PHOTO_MODE && el.dataset.photo;
-  let holes = "";
+  const [bx, by, bw, bh] = photo ? pt(el.dataset.box || "0.5,0.1,0.45,0.8").map((v, k) => v * (k % 2 ? H : W)) : [0, 0, 0, 0];
+  const gap = cell * 0.6;
+  const inBox = (x, y) => photo && x > bx - gap && x < bx + bw + gap && y > by - gap && y < by + bh + gap;
 
   const cols = Math.ceil(W / cell) + 1;
   const rows = Math.ceil(H / cell) + 1;
@@ -58,6 +61,7 @@ function drawMotif(el) {
       const tA = smooth(clamp(1 - Math.hypot(x - ax * W, y - ay * H) / ra));
       const tL = smooth(clamp(1 - Math.hypot(x - lx * W, y - ly * H) / rl));
       const t = Math.max(tA, tL);
+      if (inBox(x, y)) continue;
       if (t < 0.03) {
         if (!dots) continue;
         const s = cell * 0.09;
@@ -69,22 +73,13 @@ function drawMotif(el) {
       const s = cell * (0.14 + (0.68 + 0.12 * life) * Math.pow(t, 0.9));
       const r = (s / 2) * smooth(clamp((life - 0.2) / 0.6));
       const w = clamp(life * 0.85 + tL * tL * 0.15 * (life > 0.5 ? 1 : 0));
-      if (photo && life > 0.6 && tL > 0.05) {
-        // Life cell becomes a window onto the photo; toward the core the windows grow and fuse into the full image.
-        const g = s * (1 + 1.6 * smooth(clamp((tL - 0.1) / 0.3)));
-        holes += `<rect x="${(x - g / 2).toFixed(2)}" y="${(y - g / 2).toFixed(2)}" width="${g.toFixed(2)}" height="${g.toFixed(2)}" rx="${(g / 2).toFixed(2)}"/>`;
-        continue;
-      }
       out += `<rect x="${(x - s / 2).toFixed(2)}" y="${(y - s / 2).toFixed(2)}" width="${s.toFixed(2)}" height="${s.toFixed(2)}" rx="${r.toFixed(2)}" fill="${colorAt(w, stops)}"/>`;
     }
   }
   if (photo) {
     const id = `ph${Math.random().toString(36).slice(2, 8)}`;
-    // Photo box (landscape by default) centred on data-photo-at, sized relative to the Life radius.
-    const bw = rl * (+(el.dataset.photoScale || 2.4)) * 1.3;
-    const bh = bw * (+(el.dataset.photoRatio || 0.75));
-    const [px, py] = pt(el.dataset.photoAt || `${lx},${ly}`);
-    out += `<defs><clipPath id="${id}">${holes}</clipPath></defs><image href="${photo}" x="${px * W - bw / 2}" y="${py * H - bh / 2}" width="${bw}" height="${bh}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${id})"/>`;
+    const rad = Math.min(bw, bh) * 0.03;
+    out += `<defs><clipPath id="${id}"><rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${rad}"/></clipPath></defs><image href="${photo}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="${el.dataset.align || "xMidYMid"} slice" clip-path="url(#${id})"/>`;
   }
   el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${out}</svg>`;
 }
