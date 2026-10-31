@@ -69,9 +69,9 @@ function drawMotif(el) {
       const s = cell * (0.14 + (0.68 + 0.12 * life) * Math.pow(t, 0.9));
       const r = (s / 2) * smooth(clamp((life - 0.2) / 0.6));
       const w = clamp(life * 0.85 + tL * tL * 0.15 * (life > 0.5 ? 1 : 0));
-      if (photo && life > 0.6 && tL > 0.12) {
+      if (photo && life > 0.6 && tL > 0.05) {
         // Life cell becomes a window onto the photo; toward the core the windows grow and fuse into the full image.
-        const g = s * (1 + 1.15 * smooth(clamp((tL - 0.25) / 0.45)));
+        const g = s * (1 + 1.6 * smooth(clamp((tL - 0.1) / 0.3)));
         holes += `<rect x="${(x - g / 2).toFixed(2)}" y="${(y - g / 2).toFixed(2)}" width="${g.toFixed(2)}" height="${g.toFixed(2)}" rx="${(g / 2).toFixed(2)}"/>`;
         continue;
       }
@@ -81,7 +81,7 @@ function drawMotif(el) {
   if (photo) {
     const id = `ph${Math.random().toString(36).slice(2, 8)}`;
     // Photo box (landscape by default) centred on data-photo-at, sized relative to the Life radius.
-    const bw = rl * (+(el.dataset.photoScale || 2.4));
+    const bw = rl * (+(el.dataset.photoScale || 2.4)) * 1.3;
     const bh = bw * (+(el.dataset.photoRatio || 0.75));
     const [px, py] = pt(el.dataset.photoAt || `${lx},${ly}`);
     out += `<defs><clipPath id="${id}">${holes}</clipPath></defs><image href="${photo}" x="${px * W - bw / 2}" y="${py * H - bh / 2}" width="${bw}" height="${bh}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${id})"/>`;
