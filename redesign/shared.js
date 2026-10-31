@@ -20,8 +20,10 @@ function colorAt(w, stops) {
   return `rgb(${stops.at(-1)[1].join(",")})`;
 }
 
-// V4 ("abstract + figurative"): render with ?v=4 and motifs that have data-photo show a clean, uncut photo
-// in the box data-box="x,y,w,h" (fractions of the motif); the pixel field only frames it as an accent.
+// V4 ("abstract + figurative"): render with ?v=4 and motifs that have data-photo show the full photo
+// in data-box="x,y,w,h" (fractions of the motif), echoing the original layout: data-clip="diag" cuts a
+// diagonal left edge, "slant" a sloped bottom edge, each lined with an orange stripe. The pixel field
+// sits on the panel side as an accent.
 // Without ?v=4, everything renders as V3.
 const PHOTO_MODE = new URLSearchParams(location.search).get("v") === "4";
 
@@ -46,7 +48,16 @@ function drawMotif(el) {
   const photo = PHOTO_MODE && el.dataset.photo;
   const [bx, by, bw, bh] = photo ? pt(el.dataset.box || "0.5,0.1,0.45,0.8").map((v, k) => v * (k % 2 ? H : W)) : [0, 0, 0, 0];
   const gap = cell * 0.6;
-  const inBox = (x, y) => photo && x > bx - gap && x < bx + bw + gap && y > by - gap && y < by + bh + gap;
+  const clip = el.dataset.clip || "rect";
+  const slant = +(el.dataset.slant || 0.22);
+  const edgeX = (y) => bx + slant * bw * (1 - (y - by) / bh); // diag: photo's left edge at height y
+  const edgeY = (x) => by + bh * (1 - slant * (x - bx) / bw); // slant: photo's bottom edge at x
+  const inBox = (x, y) => {
+    if (!photo) return false;
+    if (clip === "diag") return y > by - gap && y < by + bh + gap && x > edgeX(y) - gap * 2;
+    if (clip === "slant") return x > bx - gap && x < bx + bw + gap && y < edgeY(x) + gap * 2;
+    return x > bx - gap && x < bx + bw + gap && y > by - gap && y < by + bh + gap;
+  };
 
   const cols = Math.ceil(W / cell) + 1;
   const rows = Math.ceil(H / cell) + 1;
@@ -78,8 +89,21 @@ function drawMotif(el) {
   }
   if (photo) {
     const id = `ph${Math.random().toString(36).slice(2, 8)}`;
-    const rad = Math.min(bw, bh) * 0.03;
-    out += `<defs><clipPath id="${id}"><rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${rad}"/></clipPath></defs><image href="${photo}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="${el.dataset.align || "xMidYMid"} slice" clip-path="url(#${id})"/>`;
+    const sw = cell * 0.35;
+    const P = (pts) => pts.map((p) => p.map((v) => v.toFixed(1)).join(",")).join(" ");
+    let shape, stripe = "";
+    if (clip === "diag") {
+      const tx = bx + slant * bw;
+      shape = `<polygon points="${P([[tx, by], [bx + bw, by], [bx + bw, by + bh], [bx, by + bh]])}"/>`;
+      stripe = `<polygon fill="var(--signal)" points="${P([[tx - sw * 2.2, by], [tx - sw * 0.8, by], [bx - sw * 0.8, by + bh], [bx - sw * 2.2, by + bh]])}"/>`;
+    } else if (clip === "slant") {
+      const ly = by + bh, ry = by + bh * (1 - slant);
+      shape = `<polygon points="${P([[bx, by], [bx + bw, by], [bx + bw, ry], [bx, ly]])}"/>`;
+      stripe = `<polygon fill="var(--signal)" points="${P([[bx, ly + sw * 0.8], [bx + bw, ry + sw * 0.8], [bx + bw, ry + sw * 2.2], [bx, ly + sw * 2.2]])}"/>`;
+    } else {
+      shape = `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${Math.min(bw, bh) * 0.03}"/>`;
+    }
+    out += `<defs><clipPath id="${id}">${shape}</clipPath></defs><image href="${photo}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="${el.dataset.align || "xMidYMid"} slice" clip-path="url(#${id})"/>${stripe}`;
   }
   el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${out}</svg>`;
 }
