@@ -26,6 +26,8 @@ function colorAt(w, stops) {
 // sits on the panel side as an accent.
 // Without ?v=4, everything renders as V3.
 const PHOTO_MODE = new URLSearchParams(location.search).get("v") === "4";
+// Lets a page restyle for V4 with `.v4 …` selectors.
+if (PHOTO_MODE) document.documentElement.classList.add("v4");
 
 const clamp = (v) => Math.max(0, Math.min(1, v));
 const smooth = (t) => t * t * (3 - 2 * t);
