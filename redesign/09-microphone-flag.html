@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 900px; }
+  .face { width: 340px; height: 340px; }
+  .face .motif { inset: 0; width: 340px; height: 340px; }
+  .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .item { display: flex; flex-direction: column; }
+  .mic { width: 34px; height: 120px; margin: -2px auto 0; background: linear-gradient(90deg, #1b1b20, #4a4a52, #1b1b20); border-radius: 0 0 8px 8px; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>09</span>Microphone Flag</h1><div class="spec">70 × 70 mm · 4 faces<br>Readable on camera from any angle</div></div>
+  <div class="board-body">
+    <div class="item"><div class="piece face dark"><div class="motif" data-cell="22" data-ai="0.1,0.9" data-life="0.95,0.1" data-r="0.32"></div><div class="center"><div data-logo style="font-size:40px"></div></div></div><div class="mic"></div><div class="cap">Face 1 · SLSV</div></div>
+    <div class="item"><div class="piece face light"><div class="center"><img src="assets/chamber.png" style="width:240px;height:240px"></div></div><div class="mic"></div><div class="cap">Face 2 · Chamber</div></div>
+    <div class="item"><div class="piece face dark"><div class="motif" data-cell="22" data-ai="0.3,0.4" data-life="0.7,0.6" data-r="0.55"></div></div><div class="mic"></div><div class="cap">Face 3 · Pattern</div></div>
+    <div class="item"><div class="piece face dark"><div class="center"><div class="display" style="font-size:82px">AI<br>Meets<br><span class="grad-text">Life</span></div></div></div><div class="mic"></div><div class="cap">Face 4 · Theme</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1300px; }
+  .board-body { gap: 48px; }
+  .page { width: 600px; height: 848px; }
+  .cover .motif { left: 0; top: 150px; width: 600px; height: 230px; }
+  .cover .in { position: absolute; inset: 40px; display: flex; flex-direction: column; }
+  .cover h2 { font-size: 108px; margin-top: auto; }
+  .cover .info { margin-top: 26px; font-size: 15px; }
+  .inner { padding: 48px 44px; display: flex; flex-direction: column; }
+  .inner h2 { font-size: 68px; }
+  .inner .sub { font-size: 13px; margin-top: 14px; }
+  .list { margin-top: 36px; }
+  .list div { display: grid; grid-template-columns: 56px 1fr; border-top: 1px solid rgba(18,27,49,.2); padding: 18px 0; }
+  .list .n { font-size: 14px; color: var(--signal); padding-top: 6px; }
+  .list b { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; display: block; }
+  .list span { font-size: 13px; opacity: .55; display: block; margin-top: 4px; }
+  .inner .foot { margin-top: auto; display: flex; justify-content: space-between; font-size: 11px; border-top: 2px solid var(--ink); padding-top: 12px; }
+  .item { display: flex; flex-direction: column; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>16</span>Program</h1><div class="spec">A5 booklet · 148 × 210 mm<br>Cover + interior page</div></div>
+  <div class="board-body">
+    <div class="item"><div class="piece page cover dark">
+      <div class="motif" data-cell="26" data-ai="0.25,0.75" data-life="0.72,0.35" data-r="0.62"></div>
+      <div class="in"><div data-lockup style="--ls:17px"></div>
+        <p class="lead signal" style="font-size:20px;margin-top:auto">The Program · SLSV 2027</p>
+        <h2 class="display" style="margin-top:14px">AI<br>Meets <span class="grad-text">Life</span></h2>
+        <div class="infobar info"><div><div class="k">Date</div><div class="v">Jan 12, 2027</div></div><div><div class="k">Time</div><div class="v">9AM–9PM</div></div><div style="flex:1.6"><div class="k">Venue</div><div class="v">Computer History Museum</div></div></div>
+      </div></div><div class="cap">Cover</div></div>
+    <div class="item"><div class="piece page inner light">
+      <p class="lead signal" style="font-size:18px">SLSV 2027 / January 12</p>
+      <h2 class="display" style="margin-top:14px">The<br>Program</h2>
+      <p class="mono sub muted">Full schedule announced closer to the event</p>
+      <div class="list">
+        <div><span class="mono n">01</span><p><b>Summit &amp; Conversations</b><span>Keynotes and panels on the future of living</span></p></div>
+        <div><span class="mono n">02</span><p><b>AI Hardware Experience</b><span>Hands-on demos of robots and smart devices</span></p></div>
+        <div><span class="mono n">03</span><p><b>Startup Pitch</b><span>Founders pitch to investors and partners</span></p></div>
+        <div><span class="mono n">04</span><p><b>Community &amp; Connections</b><span>Meet the people building physical AI</span></p></div>
+      </div>
+      <div class="foot mono"><span>AI Meets Life</span><span>smartlivingsv.com</span></div>
+    </div><div class="cap">Interior</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

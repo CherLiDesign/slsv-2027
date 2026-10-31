@@ -1,0 +1,21 @@
+{
+  "01-main-stage.html": { "slug": "main-stage", "version": 3 },
+  "02-core-poster.html": { "slug": "core-poster", "version": 3 },
+  "03-rollup-banners.html": { "slug": "rollup-banners", "version": 3 },
+  "04-badges.html": { "slug": "badges", "version": 3 },
+  "05-lanyard.html": { "slug": "lanyard", "version": 3 },
+  "06-tote-bag.html": { "slug": "tote-bag", "version": 3 },
+  "07-tshirt.html": { "slug": "tshirt", "version": 3 },
+  "08-mug.html": { "slug": "mug", "version": 3 },
+  "09-microphone-flag.html": { "slug": "microphone-flag", "version": 3 },
+  "10-table-cards.html": { "slug": "table-cards", "version": 3 },
+  "11-desk-flag.html": { "slug": "desk-flag", "version": 3 },
+  "12-pen.html": { "slug": "pen", "version": 3 },
+  "13-chamber-pin.html": { "slug": "chamber-pin", "version": 3 },
+  "14-sponsorship-poster.html": { "slug": "sponsorship-poster", "version": 3 },
+  "15-sponsorship-deck-cover.html": { "slug": "sponsorship-deck-cover", "version": 3 },
+  "16-program.html": { "slug": "program", "version": 3 },
+  "17-wayfinding.html": { "slug": "wayfinding", "version": 3 },
+  "18-registration-backdrop.html": { "slug": "registration-backdrop", "version": 3 },
+  "19-landscape-visual.html": { "slug": "landscape-visual", "version": 3 }
+}

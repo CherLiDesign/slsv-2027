@@ -1,0 +1,58 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1500px; }
+  .board-body { display: grid; grid-template-columns: repeat(4, 300px); gap: 40px 36px; align-content: center; justify-content: center; }
+  .badge { width: 300px; height: 433px; background: var(--ink); color: var(--paper); display: flex; flex-direction: column; }
+  .badge .slot { position: absolute; left: 50%; top: 16px; width: 64px; height: 10px; border-radius: 5px; background: #e4e8ed; transform: translateX(-50%); z-index: 2; }
+  .badge .motif { left: 0; top: 92px; width: 300px; height: 118px; }
+  .badge [data-lockup] { position: absolute; left: 22px; top: 42px; --ls: 11px; z-index: 1; }
+  .badge .who { position: absolute; left: 22px; right: 22px; top: 222px; }
+  .badge .name { font-size: 38px; font-weight: 900; letter-spacing: -0.04em; line-height: 0.95; text-transform: uppercase; }
+  .badge .org { font-size: 14px; opacity: 0.6; margin-top: 10px; font-weight: 500; }
+  .badge .role { position: absolute; left: 0; right: 0; bottom: 0; height: 74px; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; color: var(--ink); }
+  .badge .role b { font-size: 30px; font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase; }
+  .badge .role span { font-size: 11px; }
+  .back { background: var(--paper); color: var(--ink); padding: 44px 22px 22px; }
+  .back h3 { font-size: 30px; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; line-height: .9; margin-top: 26px; }
+  .back .rows { margin-top: 20px; font-size: 13px; font-weight: 600; line-height: 1.5; }
+  .back .rows div { border-top: 1px solid rgba(18,27,49,.18); padding: 7px 0; display: flex; justify-content: space-between; }
+  .back .qr { width: 96px; height: 96px; margin-top: auto; color: var(--ink); --qr-bg: var(--paper); }
+  .back .foot { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; }
+  .back .foot .mono { font-size: 10px; text-align: right; line-height: 1.6; }
+  .item { display: flex; flex-direction: column; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>04</span>Badges</h1><div class="spec">90 × 130 mm · 6 roles + shared back<br>Colour-coded role bar for fast check-in</div></div>
+  <div class="board-body" id="body"></div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+<script>
+  const roles = [
+    ["Speaker", "#df4b17", "0.2,0.9", "0.85,0.25"],
+    ["Attendee", "#f4f5f7", "0.15,0.3", "0.8,0.8"],
+    ["Organizer", "#7faddc", "0.5,0.2", "0.9,0.9"],
+    ["VIP", "#e9c46a", "0.8,0.2", "0.25,0.85"],
+    ["Exhibitor", "#c4ccd6", "0.3,0.7", "0.9,0.3"],
+    ["Volunteer", "#ee9e82", "0.65,0.85", "0.15,0.2"],
+  ];
+  const body = document.getElementById("body");
+  roles.forEach(([role, color, ai, life]) => {
+    body.insertAdjacentHTML("beforeend", `<div class="item"><div class="piece badge dark">
+      <div class="slot"></div>
+      <div class="motif" data-cell="18" data-ai="${ai}" data-life="${life}" data-r="0.55"></div>
+      <div data-lockup></div>
+      <div class="who"><div class="name">Your<br>Name</div><div class="org">Company / Organization</div></div>
+      <div class="role" style="background:${color}"><b>${role}</b><span class="mono">SLSV 2027</span></div>
+    </div><div class="cap">${role} · front</div></div>`);
+  });
+  body.insertAdjacentHTML("beforeend", `<div class="item"><div class="piece badge back">
+    <div class="slot"></div>
+    <div data-lockup="color" style="position:static;--ls:11px"></div>
+    <h3>Smart Living<br><span class="grad-text">Silicon Valley</span><br>2027</h3>
+    <div class="rows"><div><span>Jan 12, 2027</span><span>9AM–9PM</span></div><div><span>Computer History Museum</span></div><div><span>Mountain View, CA</span></div></div>
+    <div class="foot"><div class="qr"></div><div class="mono">Scan for<br>agenda & map<br>smartlivingsv.com</div></div>
+  </div><div class="cap">Shared back</div></div>`);
+</script>
+</body></html>

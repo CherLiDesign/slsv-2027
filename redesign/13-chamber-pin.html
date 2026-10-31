@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1200px; }
+  .board-body { gap: 120px; }
+  .item { display: flex; flex-direction: column; align-items: center; }
+  .pin { position: relative; width: 460px; height: 460px; border-radius: 50%; padding: 18px; background: linear-gradient(135deg, #f4f1ea 0%, #a9a59c 40%, #efece5 60%, #8d8a83 100%); box-shadow: 0 40px 60px -30px rgba(18,27,49,.6), inset 0 2px 3px rgba(255,255,255,.8); }
+  .face { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; position: relative; box-shadow: inset 0 0 0 3px rgba(0,0,0,.15); }
+  .face .motif { inset: 0; width: 424px; height: 424px; }
+  .gloss { position: absolute; inset: 18px; border-radius: 50%; background: linear-gradient(160deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 38%); pointer-events: none; }
+  .center { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>13</span>Pins</h1><div class="spec">Ø 25 mm soft enamel · gold-tone plating<br>Chamber pin + SLSV event pin</div></div>
+  <div class="board-body">
+    <div class="item"><div class="pin"><div class="face" style="background:#fff"><img src="assets/chamber.png" style="width:100%;height:100%"></div><div class="gloss"></div></div><div class="cap">US China Chamber of Commerce · Silicon Valley</div></div>
+    <div class="item"><div class="pin"><div class="face dark"><div class="motif" data-cell="26" data-ai="0.25,0.7" data-life="0.75,0.3" data-r="0.55"></div><div class="center"><div style="background:var(--ink);padding:16px 22px;border-radius:14px"><div data-logo style="font-size:34px"></div></div></div></div><div class="gloss"></div></div><div class="cap">SLSV 2027 event pin</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

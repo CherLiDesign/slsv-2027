@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=block");
+
+:root {
+  --ink: #121b31;
+  --ink-2: #1a2944;
+  --paper: #f4f5f7;
+  --paper-2: #e2e5e8;
+  --signal: #df4b17;
+  --ai: #5496eb;
+  --mid: #c4ccd6;
+  --amber: #e9c46a;
+  --muted: #7d8796;
+  --grad: linear-gradient(90deg, #ff8a4c 0%, var(--signal) 55%, #ff6a2b 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--w); height: var(--h); overflow: hidden; }
+body {
+  font-family: "Inter Tight", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+}
+
+.dark { background: var(--ink); color: var(--paper); }
+.light { background: var(--paper); color: var(--ink); }
+.abs { position: absolute; }
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.display {
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.signal { color: var(--signal); }
+.muted { opacity: 0.55; }
+
+/* Generative "AI meets Life" field, drawn by shared.js */
+.motif { position: absolute; overflow: hidden; }
+.motif svg { display: block; width: 100%; height: 100%; }
+
+/* SLSV logo + chamber co-host lockup, filled by shared.js. Size with --ls (logo height = 4.4 × --ls). */
+.lockup { display: inline-flex; align-items: center; gap: 1.1em; font-size: var(--ls, 22px); }
+.lockup .slsv, [data-logo] .slsv { height: 4.4em; width: auto; display: block; }
+.lockup .chamber { height: 4.2em; width: 4.2em; display: block; }
+.lockup .sep { width: 1px; height: 3.4em; background: currentColor; opacity: 0.3; }
+
+/* Important supporting lines (tags, taglines): bold sans, never thin mono. */
+.lead { font-family: "Inter Tight", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.15; }
+.title-rule { height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--signal), #ff8a4c 60%, transparent); }
+
+/* Rule lines and info bars */
+.rule { height: 2px; background: currentColor; }
+.infobar { display: flex; gap: 0; border-top: 2px solid currentColor; }
+.infobar > div { flex: 1; padding-top: 0.7em; }
+.infobar > div + div { border-left: 1px solid color-mix(in srgb, currentColor 30%, transparent); padding-left: 1em; }
+.infobar .k { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.62em; opacity: 0.55; margin-bottom: 0.35em; }
+.infobar .v { font-weight: 700; letter-spacing: -0.01em; }
+
+/* Presentation boards for multi-piece items */
+.board { padding: 72px 80px; background: #e4e8ed; color: var(--ink); width: 100%; height: 100%; display: flex; flex-direction: column; }
+.board-head { display: flex; justify-content: space-between; align-items: flex-end; border-top: 3px solid var(--ink); padding-top: 16px; margin-bottom: 48px; }
+.board-head h1 { font-size: 44px; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; line-height: 1; }
+.board-head h1 span { color: var(--signal); margin-right: 0.35em; }
+.board-head .spec { font-family: "JetBrains Mono", monospace; font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; text-align: right; line-height: 1.6; opacity: 0.7; }
+.board-body { flex: 1; display: flex; align-items: center; justify-content: center; gap: 40px; }
+.board-foot { display: flex; justify-content: space-between; font-family: "JetBrains Mono", monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.55; margin-top: 40px; }
+.piece { position: relative; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(13, 13, 17, 0.45), 0 2px 6px rgba(13, 13, 17, 0.08); }
+.cap { font-family: "JetBrains Mono", monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; margin-top: 14px; }

@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1000px; }
+  .board-body { gap: 140px; }
+  .stand { position: relative; width: 620px; height: 600px; }
+  .pole { position: absolute; left: 20px; top: 0; width: 10px; height: 560px; background: linear-gradient(90deg, #9c9993, #f2efe9, #9c9993); border-radius: 5px; }
+  .knob { position: absolute; left: 13px; top: -14px; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, #f2efe9, #8a877f); }
+  .base { position: absolute; left: -40px; bottom: 0; width: 130px; height: 40px; border-radius: 50% / 100% 100% 0 0; background: linear-gradient(180deg, #3a3a42, var(--ink)); }
+  .flag { position: absolute; left: 30px; top: 10px; width: 570px; height: 380px; }
+  .flag .motif { inset: 0; width: 570px; height: 380px; }
+  .flag .in { position: absolute; inset: 30px; display: flex; flex-direction: column; }
+  .yr { font-size: 150px; margin-top: auto; }
+  .item { display: flex; flex-direction: column; align-items: center; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>11</span>Desk Flag</h1><div class="spec">210 × 140 mm · double-sided<br>Front dark / back light</div></div>
+  <div class="board-body">
+    <div class="item"><div class="stand"><div class="pole"></div><div class="knob"></div><div class="base"></div>
+      <div class="flag piece dark"><div class="motif" data-cell="26" data-ai="0.66,0.22" data-life="0.92,0.34" data-r="0.26"></div>
+        <div class="in"><div data-lockup style="--ls:16px"></div><div class="display yr">20<span class="grad-text">27</span></div></div></div></div>
+      <div class="cap">Front</div></div>
+    <div class="item"><div class="stand"><div class="pole"></div><div class="knob"></div><div class="base"></div>
+      <div class="flag piece light"><div class="motif" data-theme="light" data-cell="26" data-ai="0.6,0.3" data-life="0.88,0.55" data-r="0.28"></div>
+        <div class="in"><div data-lockup style="--ls:16px"></div><div class="display" style="font-size:78px;margin-top:auto">AI Meets<br><span class="grad-text">Life</span></div></div></div></div>
+      <div class="cap">Back</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

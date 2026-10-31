@@ -1,0 +1,525 @@
+{
+  "project": {
+    "name": "SLSV 2027 视觉物料",
+    "subtitle": "Smart Living Silicon Valley 2027 · AI Meets Life",
+    "event": "2027 年 1 月 12 日 · Computer History Museum, Mountain View"
+  },
+  "categories": [
+    {
+      "id": "key-visual",
+      "name": "主视觉",
+      "en": "Key Visual"
+    },
+    {
+      "id": "venue",
+      "name": "现场布置与导视",
+      "en": "Venue & Signage"
+    },
+    {
+      "id": "credentials",
+      "name": "证件",
+      "en": "Credentials"
+    },
+    {
+      "id": "merch",
+      "name": "周边礼品",
+      "en": "Merchandise"
+    },
+    {
+      "id": "print",
+      "name": "印刷品",
+      "en": "Print"
+    },
+    {
+      "id": "sponsorship",
+      "name": "招商",
+      "en": "Sponsorship"
+    }
+  ],
+  "designs": [
+    {
+      "slug": "main-stage",
+      "title": "主舞台背景",
+      "en": "Main Stage",
+      "category": "key-visual",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_01-Main-Stage-Stanford.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/main-stage/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/main-stage/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "landscape-visual",
+      "title": "横版主视觉",
+      "en": "Landscape Visual",
+      "category": "key-visual",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_19-Landscape-Visual.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/landscape-visual/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/landscape-visual/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "core-poster",
+      "title": "主海报",
+      "en": "Core Poster",
+      "category": "key-visual",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_02-Core-Poster.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/core-poster/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/core-poster/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "registration-backdrop",
+      "title": "签到背景板",
+      "en": "Registration Backdrop",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_18-Registration-Backdrop.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/registration-backdrop/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/registration-backdrop/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "rollup-banners",
+      "title": "易拉宝",
+      "en": "Rollup Banners",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_03-Rollup-Banners.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/rollup-banners/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/rollup-banners/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "wayfinding",
+      "title": "导视牌",
+      "en": "Wayfinding",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_17-Wayfinding.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/wayfinding/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/wayfinding/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "table-cards",
+      "title": "桌卡",
+      "en": "Table Cards",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_10-Table-Cards.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/table-cards/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/table-cards/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "desk-flag",
+      "title": "桌旗",
+      "en": "Desk Flag",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_11-Desk-Flag.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/desk-flag/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/desk-flag/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "microphone-flag",
+      "title": "麦克风牌",
+      "en": "Microphone Flag",
+      "category": "venue",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_09-Microphone-Flag.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/microphone-flag/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/microphone-flag/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "badges",
+      "title": "胸牌",
+      "en": "Badges",
+      "category": "credentials",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_04-Badges.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/badges/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/badges/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "lanyard",
+      "title": "挂绳",
+      "en": "Lanyard",
+      "category": "credentials",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_05-Lanyard.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/lanyard/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/lanyard/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "tote-bag",
+      "title": "帆布袋",
+      "en": "Tote Bag",
+      "category": "merch",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_06-Tote-Bag.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/tote-bag/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/tote-bag/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "tshirt",
+      "title": "T 恤",
+      "en": "T-shirt",
+      "category": "merch",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_07-Tshirt.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/tshirt/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/tshirt/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "mug",
+      "title": "马克杯",
+      "en": "Mug",
+      "category": "merch",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_08-Mug.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/mug/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/mug/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "pen",
+      "title": "笔",
+      "en": "Pen",
+      "category": "merch",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_12-Pen.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/pen/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/pen/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "chamber-pin",
+      "title": "商会徽章",
+      "en": "Chamber Pin",
+      "category": "merch",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_13-Chamber-Pin.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/chamber-pin/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/chamber-pin/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "program",
+      "title": "活动手册",
+      "en": "Program",
+      "category": "print",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_16-Program.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/program/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/program/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "sponsorship-poster",
+      "title": "招商海报",
+      "en": "Sponsorship Poster",
+      "category": "sponsorship",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_14-Sponsorship-Poster.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/sponsorship-poster/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/sponsorship-poster/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "slug": "sponsorship-deck-cover",
+      "title": "招商手册封面",
+      "en": "Sponsorship Deck Cover",
+      "category": "sponsorship",
+      "versions": [
+        {
+          "n": 1,
+          "file": "asserts/SLSV2027_15-Sponsorship-Deck-Cover.png",
+          "note": "原稿（原设计师）"
+        },
+        {
+          "n": 2,
+          "file": "versions/sponsorship-deck-cover/v2.png",
+          "note": "重新设计：AI Meets Life 生成式视觉系统",
+          "date": "2026-10-31"
+        },
+        {
+          "n": 3,
+          "file": "versions/sponsorship-deck-cover/v3.png",
+          "note": "品牌版：SLSV 橙 + 藏青 + 商会蓝，保留设计感",
+          "date": "2026-11-01"
+        }
+      ]
+    }
+  ],
+  "versionLabels": {
+    "1": "原稿",
+    "2": "Design by Cher · 初版",
+    "3": "Design by Cher"
+  },
+  "hiddenVersions": [
+    1,
+    2
+  ]
+}

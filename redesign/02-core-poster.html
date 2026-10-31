@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1200px; --h: 1800px; }
+  .motif { left: 0; top: 300px; width: 1200px; height: 780px; }
+  .kick { left: 72px; top: 222px; font-size: 30px; }
+  .top { left: 72px; right: 72px; top: 72px; display: flex; justify-content: space-between; align-items: center; }
+  .top .mono { font-size: 15px; text-align: right; line-height: 1.6; }
+  .title { left: 72px; top: 760px; }
+  h1 { font-size: 214px; }
+  .sub { left: 72px; top: 1352px; width: 1056px; display: flex; justify-content: space-between; align-items: baseline; }
+  .sub b { font-size: 42px; font-weight: 800; letter-spacing: -0.03em; }
+  .sub span { font-size: 24px; }
+  .pillars { left: 72px; right: 72px; top: 1450px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pillars div { border-top: 1px solid rgba(244,245,247,.3); padding-top: 14px; }
+  .pillars b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -0.01em; }
+  .pillars span { font-size: 15px; }
+  .infobar { left: 72px; right: 72px; bottom: 72px; position: absolute; font-size: 22px; }
+</style></head>
+<body class="dark">
+  <div class="motif" data-cell="40" data-ai="0.22,0.82" data-life="0.76,0.36" data-ra="0.56" data-rl="0.62"></div>
+  <div class="abs top">
+    <div data-lockup style="--ls:22px"></div>
+    <div class="lead" style="font-size:22px;text-align:right">Jan 12<br><span class="signal">2027</span></div>
+  </div>
+    <p class="abs lead kick signal">Physical AI × Robotics × Smart Living</p>
+  <div class="abs title"><h1 class="display">AI<br>Meets<br><span class="grad-text">Life</span></h1></div>
+  <div class="abs sub"><b>Smart Living Silicon Valley 2027</b><span class="lead signal">Building the future of living</span></div>
+  <div class="abs pillars">
+    <div><b>AI Hardware</b><span class="mono muted">Robotics · Devices</span></div>
+    <div><b>Smart Living</b><span class="mono muted">Home · Health · Mobility</span></div>
+    <div><b>Global Leaders</b><span class="mono muted">Founders · Investors</span></div>
+  </div>
+  <div class="infobar">
+    <div><div class="k">Date</div><div class="v">Jan 12, 2027 · 9AM–9PM</div></div>
+    <div><div class="k">Venue</div><div class="v">Computer History Museum</div></div>
+    <div style="flex:.8"><div class="k">Online</div><div class="v">smartlivingsv.com</div></div>
+  </div>
+</body></html>

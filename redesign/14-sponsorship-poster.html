@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1200px; --h: 1800px; }
+  .motif { left: 0; top: 210px; width: 1200px; height: 580px; }
+  .top { left: 72px; right: 72px; top: 72px; display: flex; justify-content: space-between; align-items: center; }
+  .top .mono { font-size: 15px; }
+  .copy { left: 72px; right: 72px; top: 800px; }
+  .kicker { font-size: 30px; }
+  h1 { font-size: 150px; margin-top: 22px; line-height: 0.86; }
+  .sub { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin-top: 30px; line-height: 1.35; opacity: .75; max-width: 880px; }
+  .tiers { left: 72px; right: 72px; top: 1430px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tiers div { background: var(--ink); color: var(--paper); padding: 22px 22px 26px; min-height: 196px; display: flex; flex-direction: column; }
+  .tiers .n { font-size: 14px; color: var(--signal); }
+  .tiers b { font-size: 40px; font-weight: 900; letter-spacing: -0.04em; text-transform: uppercase; margin-top: auto; }
+  .tiers span { font-size: 15px; margin-top: 8px; opacity: .7; line-height: 1.4; }
+  .foot { left: 72px; right: 72px; bottom: 64px; display: flex; justify-content: space-between; font-size: 15px; border-top: 2px solid var(--ink); padding-top: 14px; }
+</style></head>
+<body class="light">
+  <div class="motif" data-theme="light" data-cell="38" data-ai="0.3,0.5" data-life="0.72,0.55" data-ra="0.36" data-rl="0.42"></div>
+  <div class="abs top"><div data-lockup style="--ls:22px"></div><div class="lead" style="font-size:20px">Partner with<br><span class="signal">SLSV 2027</span></div></div>
+  <div class="abs copy">
+    <p class="lead kicker signal">Sponsorship & Exhibition</p>
+    <h1 class="display">Build the<br>future<br><span class="grad-text">with us</span></h1>
+    <p class="sub">Show your products in action. Meet the ecosystem shaping physical AI, robotics and smart living.</p>
+  </div>
+  <div class="abs tiers">
+    <div><span class="mono n">01</span><b>Exhibit</b><span>Demo your hardware to builders, buyers and press.</span></div>
+    <div><span class="mono n">02</span><b>Connect</b><span>Meet founders, investors and global leaders.</span></div>
+    <div><span class="mono n">03</span><b>Partner</b><span>Co-create stages, sessions and experiences.</span></div>
+  </div>
+  <div class="abs mono foot"><span>Jan 12, 2027 · Computer History Museum</span><span>smartlivingsv.com</span></div>
+</body></html>

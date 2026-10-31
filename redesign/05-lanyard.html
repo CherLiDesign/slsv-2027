@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 2048px; --h: 41px; background: var(--ink); color: var(--paper); }
+  .strip { display: flex; align-items: center; height: 41px; white-space: nowrap; gap: 26px; padding-left: 20px; }
+  .strip .lt { font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--signal); font-size: 17px; letter-spacing: -0.06em; }
+  .strip b { font-weight: 900; font-size: 17px; letter-spacing: -0.03em; }
+  .strip .mono { font-size: 11px; opacity: .75; }
+  .strip .g { display: inline-flex; gap: 5px; align-items: center; }
+  .strip .g i { display: block; width: 10px; height: 10px; }
+</style></head>
+<body>
+  <div class="strip" id="s"></div>
+  <script>
+    const unit = `<span class="lt">&lt;/&gt;</span><b>SLSV</b><span class="mono">AI Meets Life</span><span class="g"><i style="background:#7faddc"></i><i style="background:#a9bdd2;border-radius:2px"></i><i style="background:#c4ccd6;border-radius:3px"></i><i style="background:#df4b17;border-radius:5px"></i><i style="background:#e9c46a;border-radius:5px"></i></span><span class="mono">Jan 12 2027</span><span class="mono">smartlivingsv.com</span>`;
+    document.getElementById("s").innerHTML = unit.repeat(5);
+  </script>
+</body></html>

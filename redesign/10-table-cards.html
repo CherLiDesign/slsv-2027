@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1300px; }
+  .board-body { display: grid; grid-template-columns: repeat(2, 760px); gap: 48px 64px; align-content: center; justify-content: center; }
+  .card { width: 760px; height: 358px; }
+  .card .motif { top: 0; right: 0; width: 360px; height: 358px; }
+  .card .in { position: absolute; left: 36px; top: 34px; bottom: 34px; width: 520px; display: flex; flex-direction: column; }
+  .card h2 { font-size: 72px; margin-top: auto; }
+  .card h2.one { font-size: 64px; }
+  .on-signal .logo .lt { color: var(--ink); }
+  .card p { font-size: 16px; margin-top: 14px; opacity: .65; font-weight: 500; }
+  .card .chip { position: absolute; right: 30px; bottom: 28px; font-size: 13px; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>10</span>Table Cards</h1><div class="spec">210 × 99 mm tent card · per face<br>Display / nameplate / registration / information</div></div>
+  <div class="board-body">
+    <div><div class="piece card dark"><div class="motif" data-cell="24" data-ai="0.25,0.3" data-life="0.7,0.65" data-r="0.55"></div>
+      <div class="in"><div data-lockup style="--ls:15px"></div><h2 class="display">AI Meets<br><span class="grad-text">Life</span></h2></div></div><div class="cap">Collection display</div></div>
+    <div><div class="piece card light"><div class="motif" data-theme="light" data-cell="24" data-ai="0.4,0.25" data-life="0.75,0.7" data-r="0.4"></div>
+      <div class="in"><div data-lockup style="--ls:15px"></div><h2 class="display">Your<br>Name</h2><p>Title · Company / Organization</p></div></div><div class="cap">Nameplate</div></div>
+    <div><div class="piece card on-signal" style="background:var(--signal);color:var(--ink)"><div class="motif" data-theme="light" data-empty="none" data-cell="24" data-ai="0.3,0.4" data-life="0.75,0.55" data-r="0.45" style="mix-blend-mode:multiply"></div>
+      <div class="in"><div data-lockup="color" style="--ls:15px"></div><h2 class="display one">Registration</h2><p style="opacity:.8">Check in · collect your badge</p></div><div class="chip mono">→ Start here</div></div><div class="cap">Registration</div></div>
+    <div><div class="piece card dark" style="background:#355274"><div class="motif" data-empty="none" data-cell="24" data-ai="0.25,0.3" data-life="0.75,0.7" data-r="0.45"></div>
+      <div class="in"><div data-lockup style="--ls:15px"></div><h2 class="display one">Information</h2><p style="opacity:.85">Agenda · Wi-Fi · Lost &amp; found</p></div><div class="chip mono">? Ask us</div></div><div class="cap">Information</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

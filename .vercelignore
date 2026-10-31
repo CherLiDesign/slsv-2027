@@ -1,0 +1,8 @@
+# Only the built site is published: no originals, design sources or local tooling.
+node_modules
+.next
+asserts
+versions
+redesign
+scripts
+.env*

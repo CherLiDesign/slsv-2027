@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1200px; }
+  .board-body { gap: 36px; }
+  .item { display: flex; flex-direction: column; align-items: center; }
+  .tee { position: relative; width: 400px; height: 440px; filter: drop-shadow(0 24px 30px rgba(18,27,49,.28)); }
+  .tee svg { position: absolute; inset: 0; }
+  .print { position: absolute; }
+  .chest { left: 232px; top: 112px; }
+  .back-print { left: 110px; top: 100px; width: 180px; }
+  .back-print .motif { position: relative; width: 180px; height: 120px; }
+  .back-print h3 { font-size: 46px; margin-top: 12px; }
+  .back-print p { font-size: 8px; margin-top: 10px; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>07</span>T-shirt</h1><div class="spec">Black & white · front chest mark / back print<br>Back print area 28 × 36 cm</div></div>
+  <div class="board-body" id="b"></div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+<script>
+  const shape = (fill, stroke) => `<svg viewBox="0 0 400 440"><path d="M140 20 C160 44 240 44 260 20 L330 46 L392 120 L340 170 L310 140 L310 430 L90 430 L90 140 L60 170 L8 120 L70 46 Z" fill="${fill}" stroke="${stroke}" stroke-width="2"/><path d="M140 20 C160 52 240 52 260 20" fill="none" stroke="${stroke}" stroke-width="5"/></svg>`;
+  const shirts = [
+    ["#16213a", "rgba(255,255,255,.08)", "dark", "front", "Black · front"],
+    ["#16213a", "rgba(255,255,255,.08)", "dark", "back", "Black · back"],
+    ["#f7f5f0", "rgba(0,0,0,.08)", "light", "front", "White · front"],
+    ["#f7f5f0", "rgba(0,0,0,.08)", "light", "back", "White · back"],
+  ];
+  const b = document.getElementById("b");
+  shirts.forEach(([fill, stroke, theme, side, cap]) => {
+    const color = theme === "dark" ? "var(--paper)" : "var(--ink)";
+    const print = side === "front"
+      ? `<div class="print chest" style="color:${color}"><div data-logo style="font-size:12px"></div></div>`
+      : `<div class="print back-print" style="color:${color}"><div class="motif" data-theme="${theme}" data-cell="12" data-ai="0.3,0.55" data-life="0.7,0.45" data-r="0.5" data-empty="none"></div><h3 class="display">AI Meets<br><span class="grad-text">Life</span></h3><p class="mono">SLSV 2027 · Silicon Valley</p></div>`;
+    b.insertAdjacentHTML("beforeend", `<div class="item"><div class="tee ${theme}" style="background:none">${shape(fill, stroke)}${print}</div><div class="cap">${cap}</div></div>`);
+  });
+</script>
+</body></html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1500px; }
+  .board-body { gap: 120px; align-items: flex-end; }
+  .item { display: flex; flex-direction: column; align-items: center; }
+  .banner { width: 420px; height: 1050px; }
+  .banner .motif { left: 0; top: 170px; width: 420px; height: 500px; }
+  .banner .in { position: absolute; inset: 36px 34px 34px; display: flex; flex-direction: column; }
+  .banner h2 { font-size: 104px; margin-top: auto; }
+  .banner .tag { font-size: 16px; margin-top: 16px; }
+  .banner .info { margin-top: 26px; border-top: 2px solid currentColor; font-size: 17px; font-weight: 700; line-height: 1.5; padding-top: 12px; }
+  .banner .info .mono { font-size: 13px; font-weight: 500; opacity: .6; display: block; margin-top: 8px; }
+  .foot-stand { width: 470px; height: 26px; background: linear-gradient(180deg, #c9c6bf, #7d7a74); border-radius: 4px 4px 10px 10px; margin-top: -2px; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>03</span>Rollup Banners</h1><div class="spec">80 × 200 cm · 2 versions<br>Stage-side (dark) / Expo hall (light)</div></div>
+  <div class="board-body">
+    <div class="item"><div class="piece banner dark">
+      <div class="motif" data-cell="26" data-ai="0.25,0.75" data-life="0.7,0.32" data-r="0.62"></div>
+      <div class="in"><div data-lockup style="--ls:16px"></div>
+        <h2 class="display">AI<br>Meets<br><span class="grad-text">Life</span></h2>
+        <p class="lead tag signal">Physical AI × Robotics × Smart Living</p>
+        <div class="info">Smart Living Silicon Valley 2027<br>Jan 12, 2027 · 9AM–9PM<span class="mono">Computer History Museum · smartlivingsv.com</span></div></div>
+    </div><div class="foot-stand"></div><div class="cap">Version A · Stage</div></div>
+    <div class="item"><div class="piece banner light">
+      <div class="motif" data-theme="light" data-cell="26" data-ai="0.3,0.3" data-life="0.72,0.7" data-r="0.62"></div>
+      <div class="in"><div data-lockup style="--ls:16px"></div>
+        <h2 class="display" style="font-size:96px">Smart<br>Living<br><span class="grad-text">2027</span></h2>
+        <p class="lead tag signal">Building the future of living</p>
+        <div class="info">AI Hardware Expo · Startup Pitch<br>Summit &amp; Conversations<span class="mono">Jan 12, 2027 · Computer History Museum</span></div></div>
+    </div><div class="foot-stand"></div><div class="cap">Version B · Expo</div></div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

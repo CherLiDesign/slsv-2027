@@ -1,12 +1,14 @@
 {
-  "name": "slsv-tmp",
+  "name": "slsv",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/previews.mjs && next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "previews": "node scripts/previews.mjs",
+    "deploy": "sh scripts/deploy-pages.sh"
   },
   "dependencies": {
     "next": "16.4.3",

@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1300px; }
+  .board-body { flex-direction: column; gap: 56px; }
+  .row { display: flex; align-items: center; gap: 80px; }
+  .wrap { width: 840px; height: 360px; }
+  .wrap .motif { left: 420px; top: 0; width: 420px; height: 360px; }
+  .wrap .in { position: absolute; left: 40px; top: 36px; bottom: 36px; width: 380px; display: flex; flex-direction: column; }
+  .wrap h2 { font-size: 76px; margin-top: auto; }
+  .mug { position: relative; width: 280px; height: 300px; }
+  .mug .body { position: absolute; left: 0; top: 0; width: 220px; height: 280px; border-radius: 10px 10px 26px 26px; overflow: hidden; box-shadow: inset -26px 0 40px rgba(0,0,0,.25), inset 18px 0 30px rgba(255,255,255,.12), 0 24px 40px -20px rgba(18,27,49,.5); }
+  .mug .body .motif { inset: 0; width: 220px; height: 280px; }
+  .mug .handle { position: absolute; left: 196px; top: 60px; width: 84px; height: 140px; border: 22px solid; border-left: 0; border-radius: 0 70px 70px 0; }
+  .mug .rim { position: absolute; left: 0; top: -8px; width: 220px; height: 18px; border-radius: 50%; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>08</span>Mug</h1><div class="spec">Wrap 210 × 95 mm · 11 oz ceramic<br>Light & dark editions</div></div>
+  <div class="board-body">
+    <div class="row">
+      <div><div class="piece wrap light"><div class="motif" data-theme="light" data-cell="24" data-ai="0.25,0.4" data-life="0.7,0.6" data-r="0.55"></div>
+        <div class="in"><div data-lockup style="--ls:15px"></div><h2 class="display">AI Meets<br><span class="grad-text">Life</span></h2></div></div><div class="cap">Wrap · light</div></div>
+      <div class="mug"><div class="rim" style="background:#ddd8cc"></div><div class="body light" style="z-index:1"><div class="motif" data-theme="light" data-cell="20" data-ai="0.25,0.45" data-life="0.75,0.55" data-r="0.6"></div></div><div class="handle" style="border-color:#d4ccbb;filter:drop-shadow(0 10px 12px rgba(18,27,49,.25))"></div></div>
+    </div>
+    <div class="row">
+      <div><div class="piece wrap dark"><div class="motif" data-cell="24" data-ai="0.3,0.6" data-life="0.7,0.35" data-r="0.55"></div>
+        <div class="in"><div data-lockup style="--ls:15px"></div><h2 class="display">Smart<br>Living <span class="grad-text">27</span></h2></div></div><div class="cap">Wrap · dark</div></div>
+      <div class="mug"><div class="rim" style="background:#2a2a30"></div><div class="body dark"><div class="motif" data-cell="20" data-ai="0.3,0.6" data-life="0.7,0.35" data-r="0.6"></div></div><div class="handle" style="border-color:#18181d"></div></div>
+    </div>
+  </div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+</body></html>

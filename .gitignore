@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local design storage
+/data
+
+# generated previews
+/public/previews
+
+# generated downloads
+/public/files
+/public/intro
+
+# originals and unpublished versions stay local
+/asserts
+/versions
+/out
+.vercel

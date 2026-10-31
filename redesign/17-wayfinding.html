@@ -1,0 +1,39 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  body { --w: 1920px; --h: 1100px; }
+  .board-body { gap: 28px; }
+  .sign { width: 320px; height: 452px; }
+  .sign .zone { position: absolute; left: 0; right: 0; top: 0; height: 14px; }
+  .sign .in { position: absolute; inset: 40px 26px 26px; display: flex; flex-direction: column; }
+  .sign .arrow { font-size: 150px; font-weight: 700; line-height: .8; }
+  .sign h3 { font-size: 36px; margin-top: auto; line-height: .9; }
+  .sign .motif { left: 0; right: 0; bottom: 0; width: 320px; height: 90px; }
+  .sign .meta { display: flex; justify-content: space-between; font-size: 10px; margin-top: 16px; margin-bottom: 92px; opacity: .65; }
+  .item { display: flex; flex-direction: column; }
+</style></head>
+<body>
+<div class="board">
+  <div class="board-head"><h1><span>17</span>Wayfinding</h1><div class="spec">A3 · 297 × 420 mm · foam board<br>Each zone has its own colour</div></div>
+  <div class="board-body" id="b"></div>
+  <div class="board-foot"><span>SLSV 2027 · Material collection</span><span>AI Meets Life</span></div>
+</div>
+<script>
+  const signs = [
+    ["Registration", "→", "#df4b17", "Check-in · Badges", "0.2,0.5", "0.8,0.5"],
+    ["Main<br>Stage", "↑", "#e9c46a", "Keynotes · Panels", "0.7,0.5", "0.3,0.5"],
+    ["AI Hardware<br>Expo", "↗", "#7faddc", "Demos · Exhibitors", "0.3,0.5", "0.9,0.5"],
+    ["Startup<br>Pitch", "←", "#c4ccd6", "Pitch stage", "0.5,0.3", "0.6,0.8"],
+    ["VIP<br>Lounge", "↖", "#ee9e82", "Invite only", "0.8,0.4", "0.2,0.6"],
+  ];
+  const b = document.getElementById("b");
+  signs.forEach(([name, arrow, color, sub, ai, life]) => {
+    b.insertAdjacentHTML("beforeend", `<div class="item"><div class="piece sign dark">
+      <div class="zone" style="background:${color}"></div>
+      <div class="in"><div class="arrow" style="color:${color}">${arrow}</div><h3 class="display">${name}</h3>
+      <div class="meta mono"><span>${sub}</span><span>SLSV 2027</span></div></div>
+      <div class="motif" data-cell="16" data-ai="${ai}" data-life="${life}" data-r="0.4"></div>
+    </div><div class="cap">${name.replace(/<br>/g, " ")}</div></div>`);
+  });
+</script>
+</body></html>
