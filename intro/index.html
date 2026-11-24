@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLSV 2027 · Opening</title>
+<link rel="stylesheet" href="shared.css"><script src="shared.js"></script>
+<style>
+  html, body { width: 100%; height: 100%; }
+  body { background: var(--ink); display: grid; place-items: center; cursor: pointer; }
+  .stage { position: relative; width: min(100vw, 177.78vh); aspect-ratio: 16 / 9; overflow: hidden; background: var(--ink); color: var(--paper); container-type: inline-size; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .copy { position: absolute; inset: 0 0 12cqw; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .line { font-size: 12.5cqw; opacity: 0; will-change: transform, opacity; }
+  .life { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .meta { position: absolute; left: 0; right: 0; bottom: 4cqw; display: flex; flex-direction: column; align-items: center; gap: 1.4cqw; opacity: 0; }
+  .meta .lockup { font-size: .95cqw; }
+  .meta .lead { font-size: 1.25cqw; }
+  .chapter { position: absolute; left: 4cqw; top: 3.6cqw; font-size: .9cqw; letter-spacing: .16em; opacity: .7; }
+  .hint { position: fixed; right: 16px; bottom: 12px; font-size: 11px; color: rgba(244,245,247,.4); }
+</style></head>
+<body>
+  <div class="stage dark" id="stage">
+    <canvas id="c"></canvas>
+    <div class="mono chapter" id="chapter"></div>
+    <div class="copy display">
+      <div class="line" id="l1">AI</div>
+      <div class="line" id="l2">Meets</div>
+      <div class="line life" id="l3">Life</div>
+    </div>
+    <div class="meta" id="meta">
+      <div data-lockup></div>
+      <div class="lead">Smart Living Silicon Valley · Jan 12, 2027 · Computer History Museum</div>
+    </div>
+  </div>
+  <div class="mono hint">Click to replay</div>
+<script>
+  // Same two fields as the print motif (shared.js), animated: AI pixels appear, Life blooms, they meet.
+  const W = 1920, H = 1080, CELL = 40, LOOP = 10.5;
+  const canvas = document.getElementById("c");
+  const ctx = canvas.getContext("2d");
+  const els = { l1: l1, l2: l2, l3: l3, meta: meta, chapter: chapter };
+  const cells = [];
+  const cols = Math.ceil(W / CELL) + 1, rows = Math.ceil(H / CELL) + 1;
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++)
+    cells.push({ x: (W - (cols - 1) * CELL) / 2 + i * CELL, y: (H - (rows - 1) * CELL) / 2 + j * CELL });
+
+  function resize() {
+    const r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+    ctx.setTransform(canvas.width / W, 0, 0, canvas.height / H, 0, 0);
+  }
+  addEventListener("resize", resize);
+
+  const ease = (t) => 1 - Math.pow(1 - clamp(t), 3);
+  const seg = (t, a, b) => clamp((t - a) / (b - a));
+
+  function frame(t) {
+    ctx.fillStyle = "#121b31"; ctx.fillRect(0, 0, W, H);
+    const breathe = seg(t, 4.2, 5.4);
+    // Field centres drift toward each other once both exist; radii grow in, then breathe.
+    const meet = ease(seg(t, 3, 6.2));
+    const ax = (0.26 + 0.05 * meet) * W, ay = (0.66 - 0.04 * meet) * H;
+    const lx = (0.74 - 0.05 * meet) * W, ly = (0.36 + 0.04 * meet) * H;
+    const ra = 0.3 * W * ease(seg(t, 0.2, 2.2)) * (1 + Math.sin(t * 1.6) * 0.04 * breathe);
+    const rl = 0.34 * W * ease(seg(t, 1.8, 4.6)) * (1 + Math.sin(t * 1.6 + 2) * 0.05 * breathe);
+    const dim = 1 - 0.62 * ease(seg(t, 6.2, 7.4));
+    const out = 1 - seg(t, LOOP - 0.6, LOOP);
+    const faintA = 0.15 * ease(seg(t, 0, 0.8)) * out;
+
+    for (const c of cells) {
+      const tA = ra > 0 ? smooth(clamp(1 - Math.hypot(c.x - ax, c.y - ay) / ra)) : 0;
+      const tL = rl > 0 ? smooth(clamp(1 - Math.hypot(c.x - lx, c.y - ly) / rl)) : 0;
+      const tt = Math.max(tA, tL);
+      if (tt < 0.03) {
+        ctx.fillStyle = `rgba(244,245,247,${faintA})`;
+        const s = CELL * 0.09; ctx.fillRect(c.x - s / 2, c.y - s / 2, s, s);
+        continue;
+      }
+      const life = tL / (tA + tL);
+      const s = CELL * (0.14 + (0.68 + 0.12 * life) * Math.pow(tt, 0.9));
+      const r = (s / 2) * smooth(clamp((life - 0.2) / 0.6));
+      const w = clamp(life * 0.85 + tL * tL * 0.15 * (life > 0.5 ? 1 : 0));
+      ctx.globalAlpha = dim * out;
+      ctx.fillStyle = colorAt(w, STOPS.dark);
+      ctx.beginPath(); ctx.roundRect(c.x - s / 2, c.y - s / 2, s, s, r); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    [["l1", 6.5], ["l2", 6.85], ["l3", 7.2]].forEach(([id, start]) => {
+      const a = ease(seg(t, start, start + 0.7));
+      els[id].style.opacity = a * out;
+      els[id].style.transform = `translateY(${(1 - a) * 40}%)`;
+    });
+    els.meta.style.opacity = ease(seg(t, 8, 8.8)) * out;
+    els.chapter.textContent = t < 1.9 ? "01 / AI" : t < 4.4 ? "02 / Life" : t < 6.4 ? "03 / AI meets Life" : "SLSV 2027";
+    els.chapter.style.opacity = 0.7 * out;
+  }
+
+  let start = performance.now();
+  document.body.addEventListener("click", () => (start = performance.now()));
+  const params = new URLSearchParams(location.search);
+  // ?t=7 renders a single still frame (used for thumbnails); otherwise play the loop.
+  addEventListener("DOMContentLoaded", () => {
+    resize();
+    if (params.has("t")) {
+      frame(+params.get("t"));
+      // Swap the canvas for a static image so screenshots capture the frame.
+      const img = new Image(); img.src = canvas.toDataURL(); img.style.cssText = "position:absolute;inset:0;width:100%;height:100%";
+      canvas.replaceWith(img);
+      return;
+    }
+    const tick = (now) => { frame(((now - start) / 1000) % LOOP); requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  });
+</script>
+</body></html>
